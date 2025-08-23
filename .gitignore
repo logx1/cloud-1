@@ -33,3 +33,15 @@ go.work.sum
 .gitignore
 .DS_Store
 .vscode/
+# Terraform files
+*.tfstate
+*.tfstate.backup
+.terraform/
+.terraform.lock.hcl
+
+# Sensitive files
+*.tfvars
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
