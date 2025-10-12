@@ -13,9 +13,7 @@ resource "aws_instance" "web_server" {
   }
 }
 
-resource "aws_eip" "web_server_eip" {
-  instance = aws_instance.web_server[0].id
-  tags = {
-    Name = "abdelmajid-web-server-eip"
-  }
+resource "aws_eip_association" "web_server_eip_association" {
+  instance_id   = aws_instance.web_server[0].id
+  allocation_id = "eipalloc-0a4c392d962948798" # Existing Elastic IP Allocation ID
 }
