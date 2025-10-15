@@ -1,5 +1,5 @@
-resource "aws_security_group" "Inception_aws_security_group" {
-  name        = "Inception_aws_security_group"
+resource "aws_security_group" "cloud_aws_security_group" {
+  name        = "cloud_aws_security_group"
   description = "Security group for SSH, HTTP, and HTTPS access"
 
   ingress {
