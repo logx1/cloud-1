@@ -1,4 +1,4 @@
-resource "aws_instance" "web_server" {
+resource "aws_instance" "cloud_1_server" {
   count         = 1
   ami           = "ami-0360c520857e3138f" 
   instance_type = "t2.micro"
@@ -11,6 +11,11 @@ resource "aws_instance" "web_server" {
   associate_public_ip_address = true # Ensure the instance gets a dynamic public IP
 
   tags = {
-    Name = "web-server"
+    Name = "web-cloud_1_server"
   }
+}
+
+resource "aws_eip_association" "cloud_1_eip" {
+  instance_id   = aws_instance.cloud_1_server[0].id
+  allocation_id = "eipalloc-00d2e3e6a21e62855"
 }
