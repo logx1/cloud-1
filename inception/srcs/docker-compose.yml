@@ -38,6 +38,19 @@ services:
       - wp-volumes:/var/www/wordpress
     networks:
       - lol
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    container_name: phpmyadmin
+    environment:
+      PMA_HOST: mariadb
+      PMA_PORT: 3306
+    ports:
+      - "80:80"
+    restart: always
+    depends_on:
+      - mariadb
+    networks:
+      - lol
 
 volumes:
   wp-volumes:
@@ -53,4 +66,3 @@ volumes:
 networks:
   lol:
     driver: bridge
-      
