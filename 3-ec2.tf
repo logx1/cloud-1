@@ -6,7 +6,7 @@ resource "aws_instance" "cloud_1_server" {
   vpc_security_group_ids = [aws_security_group.cloud_aws_security_group.id]
 
   # Load the script from lol.sh and pass it as user_data
-  user_data = file("/Users/abdel-ou/Desktop/cloud-1/lol.sh") 
+  user_data = file("lol.sh") 
 
   associate_public_ip_address = true # Ensure the instance gets a dynamic public IP
 
@@ -16,7 +16,7 @@ resource "aws_instance" "cloud_1_server" {
 
   # Upload the inception.zip file to the instance
   provisioner "file" {
-    source      = "/Users/abdel-ou/Desktop/cloud-1/inception"
+    source      = "inception"
     destination = "/home/ubuntu/inception"
   }
 
